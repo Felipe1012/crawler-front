@@ -1,0 +1,50 @@
+<body>
+  <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
+    <span class="navbar-brand mb-0 h1">Buscauto.com</span>
+  </nav>
+  
+      <h1></h1>
+      <div class="cardgeneral2">
+        <h2></h2>
+        <div class="col-xs-12">
+          <form class="formGroup" [formGroup]="palabra">
+            <h2></h2>
+            <div class="input-field col s12">
+              <h2>El carro de tus sueños en un click</h2>
+              <input class="form-control" formControlName="datos" autofocus>
+              <small id="emailHelp" class="form-text text-muted">Puede hacer busquedas de marca o modelo, ej: ford fiesta.</small>
+            </div>
+            <h1></h1>
+            <div class="mx-auto" style="width: 300px">
+              <button class="btn btn-primary" (click)="nlu_text()">Buscar</button>
+              <h2></h2>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <h2></h2>
+          <div *ngFor="let item of respuesta" class="cardgeneral3">
+            <br>
+            <div *ngFor="let item2 of item" class="resultado">
+              <div *ngFor="let item3 of item2" class=texto>
+                {{final.text}}
+                <hr>
+                <p *ngIf="item3.type=='ConValorDe'">Relacion: Valor </p>
+                <p *ngIf="item3.type=='Uso'">Relacion: Uso que tiene </p>
+                <p *ngIf="item3.type=='AnoDe'">Relacion: Año del vehículo </p>
+                <hr>
+                <p>Frase: {{item3.sentence}}</p>
+                <hr>
+                <div *ngFor="let item4 of item3.arguments">
+                  <div *ngFor="let item5 of item4.entities">
+                    <p>{{item5.type}}: {{item5.text}}</p>
+                  </div>
+                </div>
+              </div>
+              <br>
+            </div>
+            <br>
+          </div>
+        <br>
+</body>
