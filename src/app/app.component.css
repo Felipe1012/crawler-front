@@ -64,6 +64,12 @@
   justify-content: center;
   width: 800px;
   margin:0px auto;
-  border-radius: 20px;
+  border-radius: 10px;
 
+}
+
+.imagen1{
+  align-content: left;
+  float: left;
+  margin-right: 10px;
 }

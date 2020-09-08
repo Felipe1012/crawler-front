@@ -24,8 +24,6 @@ export class AppComponent implements OnInit {
     });
   }
 
-
-
   respuesta = [];
   x = "";
   y = ""

@@ -1,8 +1,8 @@
 <body>
   <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
-    <span class="navbar-brand mb-0 h1">Buscauto.com</span>
+    <img class="imagen1" src="https://rhc4tp-cms-prod-vpc-76857813.s3.amazonaws.com/s3fs-public/discoicon.png"   alt="" width="40" height="40">
+    <span class="navbar-brand mb-0 h1">IBM Watson discovery</span>
   </nav>
-  
       <h1></h1>
       <div class="cardgeneral2">
         <h2></h2>
@@ -10,7 +10,7 @@
           <form class="formGroup" [formGroup]="palabra">
             <h2></h2>
             <div class="input-field col s12">
-              <h2>El carro de tus sueños en un click</h2>
+              <h2>Buscador de carros en Colombia</h2>
               <input class="form-control" formControlName="datos" autofocus>
               <small id="emailHelp" class="form-text text-muted">Puede hacer busquedas de marca o modelo, ej: ford fiesta.</small>
             </div>
@@ -27,24 +27,15 @@
           <div *ngFor="let item of respuesta" class="cardgeneral3">
             <br>
             <div *ngFor="let item2 of item" class="resultado">
+              <p>{{item2[0].sentence}}</p>
+              <hr>
               <div *ngFor="let item3 of item2" class=texto>
-                {{final.text}}
-                <hr>
-                <p *ngIf="item3.type=='ConValorDe'">Relacion: Valor </p>
-                <p *ngIf="item3.type=='Uso'">Relacion: Uso que tiene </p>
-                <p *ngIf="item3.type=='AnoDe'">Relacion: Año del vehículo </p>
-                <hr>
-                <p>Frase: {{item3.sentence}}</p>
-                <hr>
-                <div *ngFor="let item4 of item3.arguments">
-                  <div *ngFor="let item5 of item4.entities">
-                    <p>{{item5.type}}: {{item5.text}}</p>
-                  </div>
-                </div>
+                <p *ngIf="item3.arguments[1].entities[0].type=='Modelo'"  > Año: {{item3.arguments[1].text}}</p>
+                <p *ngIf="item3.arguments[1].entities[0].type=='Kilometraje'"  > Kilometraje: {{item3.arguments[1].text}}</p>
+                <p *ngIf="item3.arguments[1].entities[0].type=='Precio'"  > Precio: {{item3.arguments[1].text}}</p>
               </div>
-              <br>
             </div>
             <br>
           </div>
-        <br>
+          
 </body>
