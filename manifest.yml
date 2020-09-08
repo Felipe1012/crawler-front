@@ -1,7 +1,7 @@
   
 ---
 applications :
-- name: "angular-cloud-deployment"
+- name: "crawler-front"
   path : "dist/angular-cloud-deployment"
   memory : 256M
   buildpack :
